@@ -11,7 +11,6 @@ void pop();
 void show();
 void resizeArray();
 
-
 int main() {
     np_array = (int*) malloc(4 * sizeof(int));
     int choice;
@@ -88,6 +87,6 @@ void show() {
 
     printf("\nElements present in the stack: \n");
     for (int i = top; i >=- 0; i--) {
-        printf("%d\n", np_array[i]);
+        printf("%d ", np_array[i]);
     }
 }
