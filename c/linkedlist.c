@@ -7,7 +7,7 @@ typedef struct LinkedList {
     struct LinkedList* next;
 } LinkedList;
 
-LinkedList* allocateList() {
+LinkedList* allocateList() { 
     LinkedList* list = (LinkedList*) malloc(sizeof(LinkedList));
     return list;
 }
@@ -69,21 +69,20 @@ LinkedList* createLinkedList(int size) {
     return buckets;
 }
 
-void printLinkedList(LinkedList* list) {
-    LinkedList* curr = list;
-    while (curr) {
-        printf("%d", curr->value);
-        curr = curr->next;
-    }
-    printf("\n");
-}
-
 int main() {
-    LinkedList* list = NULL;
+    LinkedList* listPointer = NULL;
 
-    addToLinkedList(list, 1);
+    printf("Starting with empty list: ");
 
-    printLinkedList(list);
+    printf("\nAdding 10, 20\n");
+    listPointer = addToLinkedList(listPointer, 10);
+    listPointer = addToLinkedList(listPointer, 20);
 
-    freeLinkedList(list);
+    printf("Removing from linked list\n");
+
+    int removedInt = removeFromLinkedList(listPointer);
+
+    printf("Removed %d\n", removedInt);
+
+    freeLinkedList(listPointer);
 }
